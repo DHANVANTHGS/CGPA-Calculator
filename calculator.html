@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator - Calculate</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CGPA Calculator</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html" class="active">Calculator</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="signin.html">sign/signup</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="calculator-hero">
+            <h1>Calculate Your CGPA</h1>
+            <p>Enter your course details below to calculate your CGPA</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <div class="calculator-header">
+                    <div class="semester-selector">
+                        <label for="semesterSelect">Select Calculation Type:</label>
+                        <select id="calculationType">
+                            <option value="semester">Semester GPA</option>
+                            <option value="cumulative">Cumulative GPA (Multiple Semesters)</option>
+                        </select>
+                    </div>
+                    <div class="grade-scale-selector">
+                        <label for="gradeScale">Grade Scale:</label>
+                        <select id="gradeScale">
+                            <option value="4.0">4.0 Scale</option>
+                            <option value="10.0">10.0 Scale</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Single Semester Calculator -->
+                <div id="semesterCalculator" class="calculator-type">
+                    <div class="course-list" id="courseList">
+                        <!-- Course entries will be added here -->
+                        <div class="course-entry">
+                            <div class="course-input">
+                                <input type="text" placeholder="Course Name" class="course-name">
+                            </div>
+                            <div class="course-input">
+                                <input type="number" placeholder="Credits" class="course-credits" min="1" max="6">
+                            </div>
+                            <div class="course-input">
+                                <select class="course-grade">
+                                    <option value="">Select Grade</option>
+                                    <option value="4.0">O (4.0)</option>
+                                    <option value="3.5">A+ (3.5)</option>
+                                    <option value="3.0">A (3.0)</option>
+                                    <option value="2.5">B+ (2.5)</option>
+                                    <option value="2.0">B (2.0)</option>
+                                    <option value="1.5">C (1.5)</option>
+                                    <option value="1.0">D (1.0)</option>
+                                    <option value="0.0">F (0.0)</option>
+                                </select>
+                            </div>
+                            <div class="course-actions">
+                                <button class="remove-course"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="addCourse" class="add-course-btn"><i class="fas fa-plus"></i> Add Course</button>
+                    <button id="calculateGPA" class="calculate-btn">Calculate GPA</button>
+                </div>
+
+                <!-- Cumulative GPA Calculator -->
+                <div id="cumulativeCalculator" class="calculator-type" style="display: none;">
+                    <div class="semester-list" id="semesterList">
+                        <!-- Semester entries will be added here -->
+                        <div class="semester-entry">
+                            <div class="semester-header">
+                                <h3>Semester 1</h3>
+                                <button class="remove-semester"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <div class="semester-inputs">
+                                <div class="semester-input">
+                                    <label>GPA:</label>
+                                    <input type="number" placeholder="GPA" class="semester-gpa" min="0" max="4" step="0.01">
+                                </div>
+                                <div class="semester-input">
+                                    <label>Credits:</label>
+                                    <input type="number" placeholder="Credits" class="semester-credits" min="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="addSemester" class="add-semester-btn"><i class="fas fa-plus"></i> Add Semester</button>
+                    <button id="calculateCGPA" class="calculate-btn">Calculate CGPA</button>
+                </div>
+
+                <div class="result-container" id="resultContainer" style="display: none;">
+                    <h2>Your Result</h2>
+                    <div class="result-display">
+                        <div class="result-value" id="resultValue">0.00</div>
+                        <div class="result-label" id="resultLabel">GPA</div>
+                    </div>
+                    <div class="result-details" id="resultDetails">
+                        <!-- Details will be added here -->
+                    </div>
+                    <div class="result-actions">
+                        <button id="saveResult" class="save-result-btn">Save to Profile</button>
+                        <button id="shareResult" class="share-result-btn">Share Result</button>
+                        <button id="resetCalculator" class="reset-btn">Reset Calculator</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h2>Tips for Improving Your CGPA</h2>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-book"></i></div>
+                    <h3>Consistent Study</h3>
+                    <p>Regular study sessions are more effective than cramming before exams.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-users"></i></div>
+                    <h3>Study Groups</h3>
+                    <p>Form study groups to discuss concepts and solve problems together.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Time Management</h3>
+                    <p>Create a study schedule and allocate time for each subject.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Ask Questions</h3>
+                    <p>Don't hesitate to ask for clarification when you don't understand something.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CGPA Calculator</h3>
+                <p>Your tool for academic success tracking and planning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: Vandu@gmail.com</p>
+                <p>Phone: 8778344532</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CGPA Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+

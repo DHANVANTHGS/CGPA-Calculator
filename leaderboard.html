@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator - Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CGPA Calculator</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+                <li><a href="signin.html">signin/signup</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="leaderboard-hero">
+            <h1>CGPA Leaderboard</h1>
+            <p>See how you rank among your peers</p>
+        </section>
+
+        <section class="leaderboard-section">
+            <div class="leaderboard-container">
+                <div class="leaderboard-filters">
+                    <div class="filter-group">
+                        <label for="departmentFilter">Department:</label>
+                        <select id="departmentFilter">
+                            <option value="all">All Departments</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="eng">Information Technology</option>
+                            <option value="bus">Cyber Security</option>
+                            <option value="arts">Artificial Intelligence and Data Science</option>
+                            <option value="sci">Artificial Intelligence and Machine Learning</option>
+                            <option value="bus">Computer Science and Business System</option>
+                            <option value="bus">Civil</option>
+                            <option value="bus">Mechanical</option>
+                            <option value="bus">Mechatronics</option>
+                            <option value="bus">Biomedical</option>
+                            <option value="bus">Electronics and Communication</option>
+                            <option value="bus">Electrical and Electronics</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="yearFilter">Year:</label>
+                        <select id="yearFilter">
+                            <option value="all">All Years</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Fourth Year</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="semesterFilter">Semester:</label>
+                        <select id="semesterFilter">
+                            <option value="all">All Semesters</option>
+                            <option value="1">Apr/May</option>
+                            <option value="2">Nov/Dec</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="leaderboard-table-container">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Year</th>
+                                <th>CGPA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <!-- Leaderboard entries will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button id="prevPage" class="pagination-btn" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                    <span id="pageInfo">Page 1 of 1</span>
+                    <button id="nextPage" class="pagination-btn">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="your-ranking-section">
+            <h2>Your Ranking</h2>
+            <div class="ranking-card" id="userRanking">
+                <div class="ranking-info">
+                    <p>Sign in to see your ranking on the leaderboard</p>
+                    <button id="signInFromRanking" class="sign-in-btn">Sign In</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>Leaderboard Statistics</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value" id="averageCGPA">3.42</div>
+                    <div class="stat-label">Average CGPA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="highestCGPA">4.00</div>
+                    <div class="stat-label">Highest CGPA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalStudents">248</div>
+                    <div class="stat-label">Total Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="departmentCount">5</div>
+                    <div class="stat-label">Departments</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CGPA Calculator</h3>
+                <p>Your tool for academic success tracking and planning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: Vandu@gmail.com</p>
+                <p>Phone: 8778344532</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CGPA Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

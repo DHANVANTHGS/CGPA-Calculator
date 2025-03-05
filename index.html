@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CGPA Calculator</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="signin.html">signin/signup</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Calculate Your Academic Success</h1>
+                <p>Track, calculate, and compare your CGPA with our easy-to-use tools</p>
+                <a href="calculator.html" class="cta-button">Calculate Now</a>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>What is CGPA?</h2>
+            <div class="info-content">
+                <div class="info-text">
+                    <p>CGPA stands for <strong>Cumulative Grade Point Average</strong>. It is a standard method used by educational institutions to measure a student's overall academic performance.</p>
+                    <p>Unlike a simple average of grades, CGPA takes into account the credit hours assigned to each course, giving more weight to courses with higher credits.</p>
+                    <p>CGPA is typically measured on a scale of 0.0 to 4.0 or 0.0 to 10.0, depending on the educational system.</p>
+                </div>
+                <div class="info-image">
+                    <img src="/placeholder.svg?height=300&width=400" alt="CGPA Concept Illustration">
+                </div>
+            </div>
+        </section>
+
+        <section class="calculation-section">
+            <h2>How is CGPA Calculated?</h2>
+            <div class="calculation-content">
+                <div class="calculation-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Assign Grade Points</h3>
+                            <p>Each letter grade is assigned a grade point: O = 4.0, A+ = 3.5, A = 3.0, B+ = 2.5, B = 2.0, C = 1.5, D = 1.0, F = 0.0</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Calculate Course Points</h3>
+                            <p>Multiply the grade point of each course by its credit hours.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Sum Total Points</h3>
+                            <p>Add up all the points from each course.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Divide by Total Credits</h3>
+                            <p>Divide the total points by the total number of credit hours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="formula">
+                    <h3>CGPA Formula:</h3>
+                    <div class="formula-box">
+                        <p>CGPA = Σ(Grade Points × Credit Hours) / Σ(Credit Hours)</p>
+                    </div>
+                </div>
+                <div class="example">
+                    <h3>Example Calculation:</h3>
+                    <table class="example-table">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Credit Hours</th>
+                                <th>Grade</th>
+                                <th>Grade Points</th>
+                                <th>Points (Grade Points × Credits)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mathematics</td>
+                                <td>4</td>
+                                <td>A+</td>
+                                <td>3.5</td>
+                                <td>14.0</td>
+                            </tr>
+                            <tr>
+                                <td>Physics</td>
+                                <td>4</td>
+                                <td>A</td>
+                                <td>3.0</td>
+                                <td>12.0</td>
+                            </tr>
+                            <tr>
+                                <td>C++ Programming</td>
+                                <td>4</td>
+                                <td>A+</td>
+                                <td>3.5</td>
+                                <td>14.0</td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>4</td>
+                                <td>A</td>
+                                <td>3.0</td>
+                                <td>12.0</td>
+                            </tr>
+                            <tr>
+                                <td>Aptitude</td>
+                                <td>1</td>
+                                <td>O</td>
+                                <td>4.0</td>
+                                <td>4.0</td>
+                            </tr>
+                            <tr>
+                                <td>Web development</td>
+                                <td>4</td>
+                                <td>A+</td>
+                                <td>3.5</td>
+                                <td>14.0</td>
+                            </tr>
+                            <tr>
+                                <td>DSD</td>
+                                <td>4</td>
+                                <td>O</td>
+                                <td>4.0</td>
+                                <td>16.0</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td>Total</td>
+                                <td>25</td>
+                                <td></td>
+                                <td></td>
+                                <td>86.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="calculation-result">
+                        <p>CGPA = 86.0 ÷ 25 = <strong>3.44</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <h2>Why Calculate Your CGPA?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your academic performance over time</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Set Goals</h3>
+                    <p>Establish clear academic targets to work towards</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Career Prospects</h3>
+                    <p>Many employers use CGPA as a screening criterion</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Higher Education</h3>
+                    <p>Strong CGPA improves chances for graduate programs</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CGPA Calculator</h3>
+                <p>Your tool for academic success tracking and planning.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: Vandu@gmail.com</p>
+                <p>Phone: 8778344532</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CGPA Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+
