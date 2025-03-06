@@ -41,13 +41,6 @@
                             <option value="cumulative">Cumulative GPA (Multiple Semesters)</option>
                         </select>
                     </div>
-                    <div class="grade-scale-selector">
-                        <label for="gradeScale">Grade Scale:</label>
-                        <select id="gradeScale">
-                            <option value="4.0">4.0 Scale</option>
-                            <option value="10.0">10.0 Scale</option>
-                        </select>
-                    </div>
                 </div>
 
                 <!-- Single Semester Calculator -->
@@ -80,7 +73,7 @@
                         </div>
                     </div>
                     <button id="addCourse" class="add-course-btn"><i class="fas fa-plus"></i> Add Course</button>
-                    <button id="calculateGPA" class="calculate-btn">Calculate GPA</button>
+                    <button  id="calculateGPA" class="calculate-btn">Calculate GPA</button>
                 </div>
 
                 <!-- Cumulative GPA Calculator -->
@@ -105,7 +98,7 @@
                         </div>
                     </div>
                     <button id="addSemester" class="add-semester-btn"><i class="fas fa-plus"></i> Add Semester</button>
-                    <button id="calculateCGPA" class="calculate-btn">Calculate CGPA</button>
+                    <button type="submit" id="calculateCGPA" class="calculate-btn">Calculate CGPA</button>
                 </div>
 
                 <div class="result-container" id="resultContainer" style="display: none;">
@@ -177,7 +170,7 @@
             <p>&copy; 2025 CGPA Calculator. All rights reserved.</p>
         </div>
     </footer>
-
+    <script src="calci.js" ></script>
     
 </body>
 </html>
