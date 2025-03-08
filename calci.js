@@ -59,7 +59,22 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
             document.getElementById("resultValue").innerHTML = "Invalid input!";
         } else {
             const result = numerator / denominator;
+            alert(`Your result ${result}`);
             document.getElementById("resultValue").innerHTML = `${result.toFixed(2)}`;
             console.log("result added");
         }
+});
+document.getElementById('remove').addEventListener("click",function(){
+    const c_n=document.getElementsByClassName('course-name');
+    const c_g=document.getElementsByClassName('course-grade');
+    const c_c=document.getElementsByClassName('course-credits');
+
+    const l=c_n.length-1;
+    const n=c_n[l];
+    const g=c_g[l];
+    const c=c_c[l];
+
+    n.remove();
+    g.remove();
+    c.remove();
 });
