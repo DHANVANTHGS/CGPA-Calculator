@@ -4,22 +4,29 @@ document.getElementById('addCourse').addEventListener("click",function(){
     const d=document.createElement('div');
     d.setAttribute('class','course-entry');
     md.appendChild(d);
-
+     
+    const dn=document.createElement('div');
+    dn.setAttribute('class','course-input');
     const new_n=document.createElement('input');
     new_n.setAttribute('type','text');
     new_n.setAttribute('class','course-name');
     new_n.setAttribute('placeholder','Course Name');
-    d.appendChild(new_n);
+    dn.appendChild(new_n);
+    d.appendChild(dn);
 
+    const dc=document.createElement('div');
+    dc.setAttribute('class','course-input');
     const new_c=document.createElement('input');
     new_c.setAttribute('type','number');
     new_c.setAttribute('class','course-credits');
     new_c.setAttribute('placeholder','Credits');
-    d.appendChild(new_c);
+    dc.appendChild(new_c);
+    d.appendChild(dc);
 
+    const dg=document.createElement('div');
+    dg.setAttribute('class','course-input');
     const new_g=document.createElement('select');
     new_g.setAttribute('class','course-grade');
-    
     const opt=[
         {value:'',text:'Select Grade'},
         {value:'4.0',text:'O(4.0)'},
@@ -38,17 +45,14 @@ document.getElementById('addCourse').addEventListener("click",function(){
         option.textContent=opt.text;
         new_g.appendChild(option);
     });
-    d.appendChild(new_g);
+    dg.appendChild(new_g);
+    d.appendChild(dg);
 
 });
 document.getElementById('calculateGPA').addEventListener("click", function(){
-        console.log("clicked");
         const c_credit=document.getElementsByClassName('course-credits');
-        console.log("T1");
         const c_grade=document.getElementsByClassName('course-grade');
-        console.log("T2");
         const len=c_credit.length;
-        console.log(len);
         var numerator=0;
         var denominator=0;
         for(var i=0;i<len;i++){
@@ -59,22 +63,16 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
             document.getElementById("resultValue").innerHTML = "Invalid input!";
         } else {
             const result = numerator / denominator;
-            alert(`Your result ${result}`);
             document.getElementById("resultValue").innerHTML = `${result.toFixed(2)}`;
             console.log("result added");
         }
 });
 document.getElementById('remove').addEventListener("click",function(){
-    const c_n=document.getElementsByClassName('course-name');
-    const c_g=document.getElementsByClassName('course-grade');
-    const c_c=document.getElementsByClassName('course-credits');
-
-    const l=c_n.length-1;
-    const n=c_n[l];
-    const g=c_g[l];
-    const c=c_c[l];
-
-    n.remove();
-    g.remove();
-    c.remove();
+    try{
+    const classEntry = document.querySelectorAll('.course-entry')
+    var len =classEntry.length;
+    classEntry[len-1].remove();}
+    catch(err){
+        console.log(err);
+    }
 });
