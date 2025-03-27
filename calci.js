@@ -55,6 +55,7 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
         const len=c_credit.length;
         var numerator=0;
         var denominator=0;
+        document.getElementById('resultContainer').setAttribute("style", "display: block;");
         for(var i=0;i<len;i++){
             numerator+=(parseFloat(c_credit[i].value)*parseFloat(c_grade[i].value));
             denominator+=parseFloat(c_credit[i].value);
@@ -74,5 +75,35 @@ document.getElementById('remove').addEventListener("click",function(){
     classEntry[len-1].remove();}
     catch(err){
         console.log(err);
+    }
+});
+
+document.getElementById('saveResult').addEventListener("click",function(){
+    try {
+        const result=document.getElementById("resultValue");
+        const year =document.getElementById("yearFilter");
+        const s=document.getElementById("semesterFilte");
+        const sem=(year-1*2)+s;
+        const urlParams = new URLSearchParams(window.location.search);
+        const name =urlParams.get('name');
+        const data={result:result,year:year,sem:sem,name:name};
+        fetch("http://localhost:4444/save",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+    })
+    .then(response=>response.json())
+    .then(result=>{
+        if (result.status===true){
+            console.log("data has been saved successfully");
+            alert("result has been saved");
+        }
+    }
+    )
+
+    } catch (error) {
+        
     }
 });

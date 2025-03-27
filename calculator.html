@@ -41,6 +41,25 @@
                             <option value="cumulative">Cumulative GPA (Multiple Semesters)</option>
                         </select>
                     </div>
+                    <div class="filter-group">
+                        <label for="yearFilter">Year:</label>
+                        <select id="yearFilter">
+                            <option value="all">All Years</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Fourth Year</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="semesterFilter">Semester:</label>
+                        <select id="semesterFilter">
+                            <option value="all">All Semesters</option>
+                            <option value="1">Apr/May</option>
+                            <option value="2">Nov/Dec</option>
+                        </select>
+                    </div>
+                    </div>
                 </div>
 
                 <!-- Single Semester Calculator -->
@@ -101,7 +120,7 @@
                     <button type="submit" id="calculateCGPA" class="calculate-btn">Calculate CGPA</button>
                 </div>
 
-                <div class="result-container" id="resultContainer">
+                <div class="result-container" id="resultContainer" style="display: none;">
                     <h2>Your Result</h2>
                     <div class="result-display">
                         <div class="result-value" id="resultValue">0.00</div>
