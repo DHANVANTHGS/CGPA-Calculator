@@ -70,6 +70,10 @@ const user=new mongoose.Schema({
         type:Number,
         default:0,
     },
+    c_cgpa:{
+        type:Number,
+        default:0,
+    },
     start_year:
     {
         type :Number,

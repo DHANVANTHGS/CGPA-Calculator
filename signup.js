@@ -23,29 +23,29 @@ document.getElementById('signup').addEventListener('submit',function(event) {
                     headers: {
                         'Content-Type': 'application/json'
                     },
+                    credentials: 'include',
                     body: JSON.stringify(data)
                 });
                 if (!response.ok) {
                     const text = await response.text();  
                     throw new Error(`Server Error: ${response.status} - ${text}`);
                 }
-        
                 const result = await response.json();
                 console.log('Server Response:', result);
         
-                if (result.status === 's') {
+                if (result.status === 'em') {
+                    alert('An account exists with this email');
+                    window.location.reload();
+                }
+                else  {
                     console.log('Navigating...');
                     if (typeof name !== 'undefined') { 
-                        window.location.href = `/calculator.html?name=${encodeURIComponent(name)}`;
+                        window.location.href=`calculator.html?name=${encodeURIComponent(name)}`;
                     } else {
                         console.error("Error: 'name' variable is undefined.");
                     }
                 } 
-                else if (result.status === 'em') {
-                    alert('An account exists with this email');
-                    window.location.reload();
-                }
-            } 
+                } 
             catch (error) {
                 console.error('Error:', error.message);
             }

@@ -10,7 +10,8 @@ document.getElementById('signin').addEventListener('submit', function(event) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        credentials: 'include',
+        body: JSON.stringify(data),
     })
     .then(response => response.json())
     .then(result => {
@@ -22,7 +23,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
             alert('Wrong Password');
             window.location.reload();
         }
-        else if(result.status=='s'){
+        else {
             console.log('navigating');
             window.location.href=`calculator.html?name=${encodeURIComponent(name)}`;
          }

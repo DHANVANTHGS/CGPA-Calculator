@@ -1105,5 +1105,10 @@
       padding: 1.5rem;
   }
 }
+#ppic{
+  border-radius: 50%; 
+  border: 2px solid #ccc; 
+  cursor: pointer;
+}
 
   
