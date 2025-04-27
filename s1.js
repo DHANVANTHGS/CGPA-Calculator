@@ -44,9 +44,8 @@ app.post('/sign_in',async(req,res)=>{
         maxAge: 3600000,
         domain: 'localhost'
     });
-    return json({cookiee:cook})
     console.log(`${data.name} has been signed in`);
-    return res.json();
+    return res.send({status:'s'});
 });
 
 app.post('/signup',async(req,res)=>{
@@ -62,6 +61,7 @@ app.post('/signup',async(req,res)=>{
     }
     const len=await collection.countDocuments();
     data.UserId=10000+len;
+    console.log(data);
     const newUser = new collection(data);
     await newUser.save();
     console.log(`${data.name} logged in `);
