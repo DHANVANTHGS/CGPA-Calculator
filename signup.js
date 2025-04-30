@@ -40,7 +40,7 @@ document.getElementById('signup').addEventListener('submit',function(event) {
                 else  {
                     console.log('Navigating...');
                     if (typeof name !== 'undefined') { 
-                        window.location.href=`calculator.html?name=${encodeURIComponent(name)}`;
+                        window.location.href=`calculator.html`;
                     } else {
                         console.error("Error: 'name' variable is undefined.");
                     }

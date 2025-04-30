@@ -5,6 +5,7 @@ const body_parse=require('body-parser');
 const collection = require('./config');
 const jwt=require('jsonwebtoken');
 const cookieParser=require('cookie-parser');
+const { connection } = require("mongoose");
 
 const app=express();
 const port=5000;
@@ -25,18 +26,17 @@ app.get('/', (req, res) => {
 
 app.post('/sign_in',async(req,res)=>{
     console.log("data recieved");
-    const data={name : req.body.name ,password : req.body.pass};
+    const data={mail : req.body.mail ,password : req.body.pass};
     console.log(data);
-    const user=await collection.findOne({name : data.name});
-    console.log(user);
+    const user=await collection.findOne({mail : data.mail});
     if(!user){
-        console.log("User not found");
-        return res.send({status:'unf'});
+        console.log("mail not found");
+        return res.send({status:'mnf'});
     } if(data.password!=user.password){
         console.log("invalid password");
         return res.send({status:'wp'});
     }
-    const token=jwt.sign({name:data.name,cgpa:user.cgpa,year: user.year}, SECRET_KEY, { expiresIn: '1h' });
+    const token=jwt.sign({name:user.name,cgpa:user.c_cgpa,year: user.year,mail:data.mail}, SECRET_KEY, { expiresIn: '1h' });
     const cook=res.cookie('token', token, {
         httpOnly: true,
         secure: false,
@@ -44,8 +44,8 @@ app.post('/sign_in',async(req,res)=>{
         maxAge: 3600000,
         domain: 'localhost'
     });
-    console.log(`${data.name} has been signed in`);
-    return res.send({status:'s'});
+    console.log(`${user.name} has been signed in`);
+    return res.send({status:'s',name:user.name});
 });
 
 app.post('/signup',async(req,res)=>{
@@ -65,7 +65,7 @@ app.post('/signup',async(req,res)=>{
     const newUser = new collection(data);
     await newUser.save();
     console.log(`${data.name} logged in `);
-    const token=jwt.sign({name:data.name ,year:data.year ,cgpa:data.cgpa}, SECRET_KEY, { expiresIn: '1h' });
+    const token=jwt.sign({name:data.name ,year:data.year ,cgpa:data.c_cgpa,mail:data.mail}, SECRET_KEY, { expiresIn: '1h' });
     res.cookie('token', token, {
         httpOnly: true,
         secure: false,
@@ -92,7 +92,24 @@ app.get('/profile',async(req,res)=>{
 
 app.post ('/save',async(req,res)=>{
     console.log("to Save Result");
-
+    const token=req.cookies.token;
+    const mail=jwt.verify(token,SECRET_KEY);
+    if(!mail){
+        return res.send({status : false});
+    }   
+    const user=await collection.findOne({mail:mail.mail});
+    const sem =req.body.sem;
+    console.log(typeof sem);
+    const s=Number(sem);
+    console.log(typeof s);
+    console.log(s);
+    user.cgpa[s-1]=req.body.result;
+    console.log(req.body.result)
+    await user.save();
+    const data=await collection.findOne({mail:mail.mail});
+    console.log(s-1);
+    console.log(data.cgpa[s-1]);
+    return res.send({status:true});
 });
 
 

@@ -1,9 +1,9 @@
 document.getElementById('signin').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const name = document.getElementById('name').value;
+    const mail = document.getElementById('mail').value;
     const pass = document.getElementById('password').value;
-    const data = { name,  pass };
+    const data = { mail,  pass };
 
     fetch("http://localhost:5000/sign_in", {
         method: 'POST',
@@ -15,8 +15,8 @@ document.getElementById('signin').addEventListener('submit', function(event) {
     })
     .then(response => response.json())
     .then(result => {
-        if (result.status==='unf'){
-            alert('invalid username');
+        if (result.status==='mnf'){
+            alert('mail not found ');
             window.location.reload();
         }
         else if  (result.status === 'wp'){
@@ -25,7 +25,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
         }
         else {
             console.log('navigating');
-            window.location.href=`calculator.html?name=${encodeURIComponent(name)}`;
+            window.location.href=`calculator.html`;
          }
     })
     .catch(error => {

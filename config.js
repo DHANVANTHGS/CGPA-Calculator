@@ -38,37 +38,9 @@ const user=new mongoose.Schema({
         type: Number,
         required: true,
     },
-    s1cgpa: {
-        type: Number,
-        default: 0,
-    },
-    s2cgpa: {
-        type:Number,
-        default:0,
-    },
-    s3cgpa: {
-        type:Number,
-        default:0,
-    },
-    s4cgpa: {
-        type:Number,
-        default:0,
-    },
-    s5cgpa: {
-        type:Number,
-        default:0,
-    },
-    s6cgpa: {
-        type:Number,
-        default:0,
-    },
-    s7cgpa: {
-        type:Number,
-        default:0,
-    },
-    s8cgpa: {
-        type:Number,
-        default:0,
+    cgpa:{
+      type :[Number],
+      default:[0,0,0,0,0,0,0,0]
     },
     c_cgpa:{
         type:Number,

@@ -80,18 +80,20 @@ document.getElementById('remove').addEventListener("click",function(){
 
 document.getElementById('saveResult').addEventListener("click",function(){
     try {
-        const result=document.getElementById("resultValue");
-        const year =document.getElementById("yearFilter");
-        const s=document.getElementById("semesterFilte");
-        const sem=(year-1*2)+s;
+        const result=document.getElementById("resultValue").innerHTML;
+        const year =document.getElementById("yearFilter").value;
+        const s=document.getElementById("semesterFilter").value;
+        const sem=((year-1)*2)+s;
+        console.log(result);
         const urlParams = new URLSearchParams(window.location.search);
         const name =urlParams.get('name');
         const data={result:result,year:year,sem:sem,name:name};
-        fetch("http://localhost:4444/save",{
+        fetch("http://localhost:5000/save",{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials:"include",
             body: JSON.stringify(data)
     })
     .then(response=>response.json())
@@ -99,6 +101,9 @@ document.getElementById('saveResult').addEventListener("click",function(){
         if (result.status===true){
             console.log("data has been saved successfully");
             alert("result has been saved");
+        }
+        else {
+            alert('please login !');
         }
     }
     )
