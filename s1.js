@@ -118,21 +118,23 @@ app.get('/getdata',async(req,res)=>{
     const sem=req.query.sem;
     let result="";
     const projection = {
+        
         rank: 1,
         name: 1,
-        dept: 1,
-        year: 1
+        department: 1,
+        year: 1,
+        cgpa:1,
       };
-      projection[`cgpa.${sem}`] = 1;
     if(!dept){
-            result=await collection.find({},projection).toArray();
+            result=await collection.find().select(projection);
     }
     else{
         const query={
             department:dept
         }
-        result=await collection.find(query,projection).toArray();
+        result=await collection.find(query).select(projection);
     }
+    console.log(result);
     return res.send(result)
 })
 
