@@ -38,6 +38,21 @@
       margin: 6px 0;
       color: #333;
     }
+
+    .logout-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .logout-button:hover {
+      background-color: #e60000;
+    }
   </style>
 </head>
 <body>
@@ -50,7 +65,10 @@
       <p><strong>CGPA:</strong> <span id="user-cgpa">0.0</span></p>
       <p><strong>Year:</strong> <span id="user-year">0</span></p>
     </div>
+
+    <button id="logout" class="logout-button">Logout</button>
   </div>
+
   <script src="profile.js"></script>
 </body>
 </html>

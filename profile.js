@@ -28,3 +28,7 @@ fetch("http://localhost:5000/profile",{
         alert('please login first');
     }
 })
+document.getElementById("logout").addEventListener("click",function(){
+    fetch("http://localhost:5000/logout");
+    windows.location.href="index.html";
+})

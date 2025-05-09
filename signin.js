@@ -25,7 +25,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
         }
         else {
             console.log('navigating');
-            window.location.href=`calculator.html`;
+            window.location.href=`index.html`;
          }
     })
     .catch(error => {

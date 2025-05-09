@@ -53,6 +53,12 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
         const c_credit=document.getElementsByClassName('course-credits');
         const c_grade=document.getElementsByClassName('course-grade');
         const len=c_credit.length;
+        const year =document.getElementById("yearFilter").value;
+        const sem=document.getElementById("semesterFilter").value;
+        if(!year || !sem ){
+            alert("fill all required fields");
+        }
+        else{
         var numerator=0;
         var denominator=0;
         document.getElementById('resultContainer').setAttribute("style", "display: block;");
@@ -67,6 +73,7 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
             document.getElementById("resultValue").innerHTML = `${result.toFixed(2)}`;
             console.log("result added");
         }
+    }
 });
 document.getElementById('remove').addEventListener("click",function(){
     try{
@@ -107,7 +114,6 @@ document.getElementById('saveResult').addEventListener("click",function(){
         }
     }
     )
-
     } catch (error) {
         
     }

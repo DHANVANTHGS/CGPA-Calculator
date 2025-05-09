@@ -112,6 +112,29 @@ app.post ('/save',async(req,res)=>{
     return res.send({status:true});
 });
 
+app.get('/getdata',async(req,res)=>{
+    console.log("sending data");
+    const dept=req.query.dept;
+    const sem=req.query.sem;
+    let result="";
+    const projection = {
+        rank: 1,
+        name: 1,
+        dept: 1,
+        year: 1
+      };
+      projection[`cgpa.${sem}`] = 1;
+    if(!dept){
+            result=await collection.find({},projection).toArray();
+    }
+    else{
+        const query={
+            department:dept
+        }
+        result=await collection.find(query,projection).toArray();
+    }
+    return res.send(result)
+})
 
 app.listen(port,(req,res)=>{
     console.log(`server is running at http://localhost:${port}`);

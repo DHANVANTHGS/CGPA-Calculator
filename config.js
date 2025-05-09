@@ -56,6 +56,10 @@ const user=new mongoose.Schema({
         type:Number,
         required:true,
     },
+    department :
+    {
+        type:String,
+    }
 });
  const userdata=mongoose.model("userdata",user);
  module.exports =userdata;

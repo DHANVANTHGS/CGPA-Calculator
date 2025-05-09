@@ -17,8 +17,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="calculator.html">Calculator</a></li>
                 <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
-                <li><a href="signin.html">signin/signup</a></li>
+                <li><a  id='prof' href="signin.html">signin/signup</a></li>
             </ul>
+             <script src="nav.js"></script>
         </nav>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -37,7 +38,7 @@
                     <div class="filter-group">
                         <label for="departmentFilter">Department:</label>
                         <select id="departmentFilter">
-                            <option value="all">All Departments</option>
+                            <option value="">All Departments</option>
                             <option value="cs">Computer Science</option>
                             <option value="eng">Information Technology</option>
                             <option value="bus">Cyber Security</option>
@@ -53,9 +54,9 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="yearFilter">Year:</label>
-                        <select id="yearFilter">
-                            <option value="all">All Years</option>
+                        <label for="yearFilter">Year *:</label>
+                        <select id="yearFilter" required>
+                            <option value="">All Years</option>
                             <option value="1">First Year</option>
                             <option value="2">Second Year</option>
                             <option value="3">Third Year</option>
@@ -63,9 +64,9 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="semesterFilter">Semester:</label>
-                        <select id="semesterFilter">
-                            <option value="all">All Semesters</option>
+                        <label for="semesterFilter">Semester *:</label>
+                        <select id="semesterFilter" required>
+                            <option value="">All Semesters</option>
                             <option value="1">Apr/May</option>
                             <option value="2">Nov/Dec</option>
                         </select>
@@ -78,7 +79,7 @@
                             <tr>
                                 <th>Rank</th>
                                 <th>Name</th>
-                                <th>Department</th>
+                                <th>Semester</th>
                                 <th>Year</th>
                                 <th>CGPA</th>
                             </tr>
@@ -154,7 +155,7 @@
             <p>&copy; 2025 CGPA Calculator. All rights reserved.</p>
         </div>
     </footer>
-
+   <script src=leaderboard.js></script>
 </body>
 </html>
 
