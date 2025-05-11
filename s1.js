@@ -48,7 +48,7 @@ app.post('/sign_in',async(req,res)=>{
         secure: false,
         sameSite: 'Lax',
         maxAge: 3600000,
-        domain: 'localhost'
+       domain: 'localhost'
     });
     console.log(`${user.name} has been signed in`);
     return res.send({status:'s',name:user.name});
@@ -57,7 +57,7 @@ app.post('/sign_in',async(req,res)=>{
 app.post('/signup',async(req,res)=>{
     console.log(req.body)
     console.log("new data recieved");
-    const data={name :req.body.name , password:req.body.pass ,mail: req.body.mail,year: -1,start_year:req.body.syr,end_year:req.body.eyr,UserId:0};
+    const data={name :req.body.name , password:req.body.pass ,mail: req.body.mail,year: -1,start_year:req.body.syr,end_year:req.body.eyr,department:req.body.dept};
     const currentYear = new Date().getFullYear();
     data.year = currentYear - data.start_year;
     const check=await collection.findOne({mail: data.mail});
@@ -65,8 +65,6 @@ app.post('/signup',async(req,res)=>{
         console.log(`existing mail in mail ${data.mail}`);
        return  res.json({status:'em'});
     }
-    const len=await collection.countDocuments();
-    data.UserId=10000+len;
     console.log(data);
     const newUser = new collection(data);
     await newUser.save();
@@ -106,14 +104,14 @@ app.post ('/save',async(req,res)=>{
     const user=await collection.findOne({mail:mail.mail});
     const sem =req.body.sem;
     console.log(user.cgpa);
-    user.cgpa[s-1]=req.body.result;
+    user.cgpa[sem-1]=req.body.result;
     console.log(req.body.result);
     user.c_cgpa=cumulative(user.cgpa);
     console.log(user.c_cgpa);
     await user.save();
     const data=await collection.findOne({mail:mail.mail});
-    console.log(s-1);
-    console.log(data.cgpa[s-1]);
+    console.log(sem-1);
+    console.log(data.cgpa[sem-1]);
     console.log(token);
     const ntoken=jwt.sign({name:data.name,year:data.year,cgpa:data.c_cgpa,mail:data.mail}, SECRET_KEY, { expiresIn: '1h' });
      res.cookie('token', ntoken, {
@@ -132,12 +130,12 @@ app.get('/getdata',async(req,res)=>{
     const sem=req.query.sem;
     let result="";
     const projection = {
-
-        rank: 1,
         name: 1,
         department: 1,
         year: 1,
         cgpa:1,
+        c_cgpa:1,
+        mail:1
       };
     if(!dept){
             result=await collection.find().select(projection);
@@ -149,6 +147,7 @@ app.get('/getdata',async(req,res)=>{
         result=await collection.find(query).select(projection);
     }
     console.log(result);
+    result.sort((a,b)=> b.c_cgpa-a.c_cgpa);
     return res.send(result)
 })
 
@@ -158,9 +157,10 @@ app.get("/logout",(req,res)=>{
         secure: false,
         sameSite: 'Lax',
         domain: 'localhost'
-        });
-        return res.send({status:true});
-})
+    });
+    return res.send({ status: true, message: 'Logged out successfully' });
+});
+
 app.listen(port,(req,res)=>{
     console.log(`server is running at http://localhost:${port}`);
 });

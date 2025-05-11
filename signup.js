@@ -8,7 +8,8 @@ document.getElementById('signup').addEventListener('submit',function(event) {
     const cpass=document.getElementById('cpass').value;
     const syr=document.getElementById('start').value;
     const eyr=document.getElementById('end').value;
-    const data ={name , mail ,pass,syr,eyr}
+    const dept=document.getElementById('dept').value;
+    const data ={name , mail ,pass,syr,eyr,dept}
     console.log(JSON.stringify(data))
     console.log(`Data : ${data.pass}`);
     if(pass !== cpass){
@@ -50,7 +51,6 @@ document.getElementById('signup').addEventListener('submit',function(event) {
                 console.error('Error:', error.message);
             }
         }
-        signup();
-        
+        signup();   
 }
 });

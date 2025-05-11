@@ -65,6 +65,24 @@
             text-decoration: none;
             cursor: pointer;
         }
+    select {
+       width: 100%;
+       padding: 0.75rem;
+       margin: 0.5rem 0;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       background: #fff;
+       font-size: 1rem;
+       font-family: Arial, sans-serif;
+       color: #333;
+     }
+     input::placeholder,
+select:invalid {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333; 
+    opacity: 1;
+}
     </style>
 </head>
 <body>
@@ -77,7 +95,7 @@
             <input id="cpass" type="password" placeholder="Confirm Password" required>
             <input id="start" type="number" name="req.body.syr" placeholder="Acadamic start year" required>
             <input id="end" type="number" name="req.body.eyr" placeholder="Acadamic End Year" required>
-             <select id="departmentFilter" required>
+             <select id="dept" required>
                             <option value="" disabled selected hidden>Select Department</option>
                             <option value="CSE">Computer Science</option>
                             <option value="IT">Information Technology</option>

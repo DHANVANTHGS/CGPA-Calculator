@@ -1,20 +1,29 @@
 async function display(data,dept,sem){
     const portion = document.getElementsByClassName("leaderboard-table")[0];
-   
     while (portion.rows.length > 1) {
         portion.deleteRow(1);
     }
-
+    let cgpa;
+    let rank=1;
     data.forEach(i => {
         const row = document.createElement('tr');
+        if(sem){
+            cgpa=i.cgpa?.[sem-1]; 
+            console.log(cgpa);
+            console.log(sem);
+        }
+        else{
+            cgpa=i.c_cgpa;
+        }
         row.innerHTML = `
-            <td>${i.rank ?? '-'}</td>
+            <td>${rank}</td>
             <td>${i.name ?? '-'}</td>
             <td>${dept}</td>
             <td>${i.year}</td>
-            <td>${i.cgpa?.[sem] ?? '-'}</td>
+            <td>${cgpa}</td>
         `;
         portion.appendChild(row);
+        rank++;
     });
 }
 
@@ -25,6 +34,7 @@ async function filter(){
     let sem;
     if(s){
         sem = ((year-1)*2)+s;
+        console.log(sem);
     }
     const data={dept:dept,year:year,sem:sem};
     const params = new URLSearchParams({ dept, year, sem }); 
@@ -33,6 +43,7 @@ async function filter(){
         headers: {
             'Content-Type':'application/json'
         },
+        credentials: "include"
     });
     students=await result.json();
     console.log("Fetched data:", data);

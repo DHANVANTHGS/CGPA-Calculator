@@ -21,7 +21,6 @@ fetch("http://localhost:5000/profile",{
     console.log(data.user);
     if(data.user){
         console.log(data.user);
-        alert(`hello ${data.user.name}`);
         profile(data.user);
     }
     else{
@@ -29,8 +28,11 @@ fetch("http://localhost:5000/profile",{
     }
 })
 document.getElementById("logout").addEventListener("click",function(){
-    fetch("http://localhost:5000/logout")
+    fetch("http://localhost:5000/logout",{
+        method : 'GET',
+        credentials:'include'
+    })
     .then(response=>{
         window.location.href='index.html';
     });
-})
+});
