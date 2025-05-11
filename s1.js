@@ -19,10 +19,16 @@ app.use(cors({
 }));
 app.use(cookieParser());
 
-
-app.get('/', (req, res) => {
-    res.send('hi')
-})
+function cumulative(c){
+    let count=0,sum=0;
+    for(let i=0;i<c.length;i++){
+        if(c[i]!=0){
+            sum+=c[i];
+            count++;
+        }
+    }
+    return sum/count;
+}
 
 app.post('/sign_in',async(req,res)=>{
     console.log("data recieved");
@@ -99,16 +105,24 @@ app.post ('/save',async(req,res)=>{
     }   
     const user=await collection.findOne({mail:mail.mail});
     const sem =req.body.sem;
-    console.log(typeof sem);
-    const s=Number(sem);
-    console.log(typeof s);
-    console.log(s);
+    console.log(user.cgpa);
     user.cgpa[s-1]=req.body.result;
-    console.log(req.body.result)
+    console.log(req.body.result);
+    user.c_cgpa=cumulative(user.cgpa);
+    console.log(user.c_cgpa);
     await user.save();
     const data=await collection.findOne({mail:mail.mail});
     console.log(s-1);
     console.log(data.cgpa[s-1]);
+    console.log(token);
+    const ntoken=jwt.sign({name:data.name,year:data.year,cgpa:data.c_cgpa,mail:data.mail}, SECRET_KEY, { expiresIn: '1h' });
+     res.cookie('token', ntoken, {
+        httpOnly: true,
+        secure: false,
+        sameSite: 'Lax',
+        maxAge: 3600000,
+        domain: 'localhost'
+    });
     return res.send({status:true});
 });
 
@@ -118,7 +132,7 @@ app.get('/getdata',async(req,res)=>{
     const sem=req.query.sem;
     let result="";
     const projection = {
-        
+
         rank: 1,
         name: 1,
         department: 1,
@@ -138,6 +152,15 @@ app.get('/getdata',async(req,res)=>{
     return res.send(result)
 })
 
+app.get("/logout",(req,res)=>{
+      res.clearCookie('token', {
+        httpOnly: true,
+        secure: false,
+        sameSite: 'Lax',
+        domain: 'localhost'
+        });
+        return res.send({status:true});
+})
 app.listen(port,(req,res)=>{
     console.log(`server is running at http://localhost:${port}`);
 });

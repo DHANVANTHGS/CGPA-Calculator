@@ -29,6 +29,8 @@ fetch("http://localhost:5000/profile",{
     }
 })
 document.getElementById("logout").addEventListener("click",function(){
-    fetch("http://localhost:5000/logout");
-    windows.location.href="index.html";
+    fetch("http://localhost:5000/logout")
+    .then(response=>{
+        window.location.href='index.html';
+    });
 })

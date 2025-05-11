@@ -77,6 +77,21 @@
             <input id="cpass" type="password" placeholder="Confirm Password" required>
             <input id="start" type="number" name="req.body.syr" placeholder="Acadamic start year" required>
             <input id="end" type="number" name="req.body.eyr" placeholder="Acadamic End Year" required>
+             <select id="departmentFilter" required>
+                            <option value="" disabled selected hidden>Select Department</option>
+                            <option value="CSE">Computer Science</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="CS">Cyber Security</option>
+                            <option value="AIDS">Artificial Intelligence and Data Science</option>
+                            <option value="AIML">Artificial Intelligence and Machine Learning</option>
+                            <option value="CSBS">Computer Science and Business System</option>
+                            <option value="Civil">Civil</option>
+                            <option value="Mech">Mechanical</option>
+                            <option value="MCT">Mechatronics</option>
+                            <option value="BME">Biomedical</option>
+                            <option value="ECE">Electronics and Communication</option>
+                            <option value="EEE">Electrical and Electronics</option>
+                        </select>
             <button type="submit">Sign Up</button>
         </form>
         <div class="toggle">
