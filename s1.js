@@ -10,13 +10,20 @@ const { connection } = require("mongoose");
 const app=express();
 const port=5000;
 const SECRET_KEY = 'supersecretkey';
-const frontend="http://localhost:3000";
+const allowedOrigins=['http://localhost:3000',' https://dhanvanthgs.github.io/CGPA-Calculator'];
 
 app.use(express.json());
 app.use(cors({
-    origin:frontend,
-    credentials:true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
+
 app.use(cookieParser());
 
 function cumulative(c){
