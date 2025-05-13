@@ -103,16 +103,10 @@ app.post ('/save',async(req,res)=>{
     }   
     const user=await collection.findOne({mail:mail.mail});
     const sem =req.body.sem;
-    console.log(user.cgpa);
     user.cgpa[sem-1]=req.body.result;
-    console.log(req.body.result);
     user.c_cgpa=cumulative(user.cgpa);
-    console.log(user.c_cgpa);
     await user.save();
     const data=await collection.findOne({mail:mail.mail});
-    console.log(sem-1);
-    console.log(data.cgpa[sem-1]);
-    console.log(token);
     const ntoken=jwt.sign({name:data.name,year:data.year,cgpa:data.c_cgpa,mail:data.mail}, SECRET_KEY, { expiresIn: '1h' });
      res.cookie('token', ntoken, {
         httpOnly: true,
@@ -146,9 +140,26 @@ app.get('/getdata',async(req,res)=>{
         }
         result=await collection.find(query).select(projection);
     }
-    console.log(result);
+    const token=req.cookies.token;
+    let bool=1
     result.sort((a,b)=> b.c_cgpa-a.c_cgpa);
-    return res.send(result)
+    if(token){
+        const decoded=jwt.verify(token,SECRET_KEY);
+        let rank=0;
+        result.forEach(i=>{
+            if(bool){
+                rank++;
+            }
+            if(i.mail===decoded.mail){
+                bool=0;
+            }
+        })
+        if(bool){
+            rank=0;
+        }
+        return res.send({data:result,rank:rank});
+    }
+    return res.send({data:result,rank:-1})
 })
 
 app.get("/logout",(req,res)=>{

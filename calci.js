@@ -118,3 +118,20 @@ document.getElementById('saveResult').addEventListener("click",function(){
         
     }
 });
+
+document.getElementById("DownloadResult").addEventListener("click",function(){
+    const element=document.body;
+      const options = {
+        margin:       0.5,
+        filename:     'leaderboard.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(element).save();
+});
+
+document.getElementById("resetCalculator").addEventListener("click",function(){
+        window.location.href=`calculator.html`;
+})

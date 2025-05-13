@@ -5,6 +5,7 @@ async function display(data,dept,sem){
     }
     let cgpa;
     let rank=1;
+    let count=0,sum=0,high;
     data.forEach(i => {
         const row = document.createElement('tr');
         if(sem){
@@ -15,6 +16,9 @@ async function display(data,dept,sem){
         else{
             cgpa=i.c_cgpa;
         }
+        if(rank==1){
+            high = cgpa;
+        }
         row.innerHTML = `
             <td>${rank}</td>
             <td>${i.name ?? '-'}</td>
@@ -24,7 +28,12 @@ async function display(data,dept,sem){
         `;
         portion.appendChild(row);
         rank++;
+        count++;
+        sum+=cgpa;
     });
+    const avg=document.getElementById("averageCGPA").innerText=(sum/count);
+    const highest=document.getElementById("highestCGPA").innerText=high;
+    const total=document.getElementById("totalStudents").innerText=data.length;
 }
 
 async function filter(){
@@ -36,7 +45,6 @@ async function filter(){
         sem = ((year-1)*2)+s;
         console.log(sem);
     }
-    const data={dept:dept,year:year,sem:sem};
     const params = new URLSearchParams({ dept, year, sem }); 
      const result=await fetch(`http://localhost:5000/getdata?${params.toString()}`,{
         method:'GET',
@@ -46,8 +54,16 @@ async function filter(){
         credentials: "include"
     });
     students=await result.json();
-    console.log("Fetched data:", data);
-    display(students,dept,sem);
+    const rank=document.getElementsByClassName("ranking-info")[0];
+    console.log(students.rank);
+    if(students.rank!=-1){
+        
+        rank.innerHTML="";
+        const your_rank= document.createElement('h2');
+        your_rank.innerText=students.rank;
+        rank.appendChild(your_rank);
+    }
+    display(students.data,dept,sem);
 }
 document.getElementById("departmentFilter").addEventListener("change",filter);
 document.getElementById("yearFilter").addEventListener("change",filter);
