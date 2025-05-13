@@ -70,6 +70,7 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
             document.getElementById("resultValue").innerHTML = "Invalid input!";
         } else {
             const result = numerator / denominator;
+            result*=2.5;
             document.getElementById("resultValue").innerHTML = `${result.toFixed(2)}`;
             console.log("result added");
         }
