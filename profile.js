@@ -6,7 +6,7 @@ function profile(user){
 }
 const pro =document.getElementById('prof');
 const p=document.createElement('img');
-p.setAttribute('src','https://i.imgur.com/6VBx3io.png');
+p.setAttribute('src','profilepic-removebg-preview.png');
 p.setAttribute('alt','user pic');
 p.setAttribute('width','120');
 p.setAttribute('height','120');
