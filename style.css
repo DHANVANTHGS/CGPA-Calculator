@@ -1101,9 +1101,9 @@ label[for="semesterFilter"] {
   }
   
   .leaderboard-container {
-    background-color:white;
+    background-color: #fff7f0;
     border-radius: 8px;
-    box-shadow: 0 4px 6px var(--shadow-color);
+    box-shadow: 0 0 6px black;
     padding: 2rem;
   }
   
@@ -1127,7 +1127,8 @@ label[for="semesterFilter"] {
   
   .filter-group select {
     padding: 0.5rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid black;
+    box-shadow:0 0 4px #000;
     border-radius: 4px;
     font-size: 1rem;
     min-width: 150px;
@@ -1151,9 +1152,9 @@ label[for="semesterFilter"] {
   }
   
   .leaderboard-table th {
-    background-color: #f8f9fa;
+    background-color: rgb(247, 141, 28);
     font-weight: 600;
-    color: var(--primary-color);
+    color: black;
   }
   
   .leaderboard-table tbody tr:hover {
@@ -1169,9 +1170,9 @@ label[for="semesterFilter"] {
   
   .pagination-btn {
     background-color: var(--light-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid black
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 3 px;
     cursor: pointer;
     transition: background-color 0.3s;
   }
