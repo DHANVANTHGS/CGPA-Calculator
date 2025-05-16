@@ -1193,16 +1193,18 @@ label[for="semesterFilter"] {
   }
   
   .your-ranking-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-    font-size: 2rem;
-  }
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(217, 135, 19);
+  text-shadow: 1px 1px #343a40;
+  font-size: 2rem; 
+}
+
   
   .ranking-card {
-    background-color: white;
+    background-color: #fff7f0;
     border-radius: 8px;
-    box-shadow: 0 4px 6px var(--shadow-color);
+    box-shadow: 0 0 6px black;
     padding: 2rem;
     text-align: center;
   }
@@ -1212,14 +1214,15 @@ label[for="semesterFilter"] {
   }
   
   .stats-section {
-    background-color: #f8f9fa;
+    background-color: #E6E6FA;
     padding: 4rem 2rem;
   }
   
   .stats-section h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--primary-color);
+     color: rgb(217, 135, 19);
+  text-shadow: 1px 1px #343a40;
     font-size: 2rem;
   }
   
@@ -1232,9 +1235,9 @@ label[for="semesterFilter"] {
   }
   
   .stat-card {
-    background-color: white;
+    background-color:#fff7f0;
     border-radius: 8px;
-    box-shadow: 0 4px 6px var(--shadow-color);
+    box-shadow: 0 0 6px black;
     padding: 2rem;
     text-align: center;
   }
@@ -1242,7 +1245,7 @@ label[for="semesterFilter"] {
   .stat-value {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-color);
+    color:rgb(247, 141, 28);
     margin-bottom: 0.5rem;
   }
   

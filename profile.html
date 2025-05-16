@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
+      background-color:black;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -14,7 +14,7 @@
     }
 
     .profile-card {
-      background-color: white;
+      background-color:#fff7f0;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 30px;
@@ -31,7 +31,8 @@
     }
 
     .profile-info h2 {
-      margin: 10px 0;
+      margin-top: 4px;
+      size:1rem;
     }
 
     .profile-info p {
@@ -42,26 +43,26 @@
     .logout-button {
       margin-top: 20px;
       padding: 10px 20px;
-      background-color: #ff4d4d;
+      background-color: #ec4e0b;
       color: white;
-      border: none;
+      border: 2px solid black;
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
     }
 
     .logout-button:hover {
-      background-color: #e60000;
+      background-color: #e48360;
     }
   </style>
 </head>
 <body>
 
   <div class="profile-card">
-    <img src="https://i.imgur.com/6VBx3io.png" alt="Profile Picture" class="profile-pic">
+    <img src="profilepic-removebg-preview.png" alt="Profile Picture" class="profile-pic">
 
     <div class="profile-info">
-      <h2 id="user-name">Name</h2>
+      <h2 id="user-name">NAME</h2>
       <p><strong>CGPA:</strong> <span id="user-cgpa">0.0</span></p>
       <p><strong>Year:</strong> <span id="user-year">0</span></p>
     </div>
