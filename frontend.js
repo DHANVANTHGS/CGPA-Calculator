@@ -119,11 +119,12 @@ app.get('/getdata',async(req,res)=>{
             headers['Cookie'] = req.headers.cookie;
         }
         try{
-            const result=await fetch(` http://localhost:3000/getdata?${params.toString()}`,{
+            const result=await fetch(` http://localhost:5000/getdata?${params.toString()}`,{
                 method:'GET',
                 headers,
             });
-           const return_data=await result.json();  
+           const return_data=await result.json(); 
+           console.log(return_data); 
            res.send(return_data);
         }catch(err){
             console.log("error on getting data :",err);
