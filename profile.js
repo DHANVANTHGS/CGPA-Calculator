@@ -28,7 +28,7 @@ fetch(" http://localhost:3000/profile",{
     }
 })
 document.getElementById("logout").addEventListener("click",function(){
-    fetch(" https://localhost:3000/logout",{
+    fetch(" http://localhost:3000/logout",{
         method : 'GET',
         credentials:'include'
     })

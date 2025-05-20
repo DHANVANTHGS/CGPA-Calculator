@@ -170,15 +170,7 @@ app.get('/getdata',async(req,res)=>{
     return res.send({data:result,rank:-1})
 })
 
-app.get("/logout",(req,res)=>{
-      res.clearCookie('token', {
-        httpOnly: true,
-        secure: false,
-        sameSite: 'Lax',
-        domain: 'localhost'
-    });
-    return res.send({ status: true, message: 'Logged out successfully' });
-});
+
 
 app.listen(port,(req,res)=>{
     console.log(`server is running at http://localhost:${port}`);

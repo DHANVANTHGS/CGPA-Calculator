@@ -38,7 +38,7 @@ app.post('/sign_in',async(req,res)=>{
 });
 
 app.post('/signup',async(req,res)=>{
-    const data ={name :req.body.name , password:req.body.pass ,mail: req.body.mail,year: -1,start_year:req.body.syr,end_year:req.body.eyr,department:req.body.dept};
+    const data ={name :req.body.name , pass:req.body.pass ,mail: req.body.mail,year: -1,syr:req.body.syr,eyr:req.body.eyr,dept:req.body.dept};
     const headers= {
         'Content-Type':'application/json',
     }
@@ -132,25 +132,14 @@ app.get('/getdata',async(req,res)=>{
         }   
 });
 
-app.get("/logout",async(req,res)=>{
-    const headers = {
-             'Content-Type': 'application/json',
-    };
-
-    if (req.headers.cookie) {
-         headers['Cookie'] = req.headers.cookie;
-    }
-    try{
-        const result =fetch(" https://localhost:3000/logout",{
-            method : 'GET',
-            headers,
-        });
-        const return_data=await result.json();
-        return res.send(returm_data);
-    }catch(err){
-        console.log("error on logging out :",err);
-        res.status(500).json()({error:'unable to log out'});
-    }
+app.get("/logout",(req,res)=>{
+      res.clearCookie('token', {
+        httpOnly: true,
+        secure: false,
+        sameSite: 'Lax',
+        domain: 'localhost'
+    });
+    return res.send({ status: true, message: 'Logged out successfully' });
 });
 
 app.listen(port,(req,res)=>{
