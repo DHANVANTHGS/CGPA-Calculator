@@ -38,7 +38,7 @@ app.post('/sign_in',async(req,res)=>{
 });
 
 app.post('/signup',async(req,res)=>{
-    const data ={name :req.body.name , pass:req.body.pass ,mail: req.body.mail,year: -1,syr:req.body.syr,eyr:req.body.eyr,dept:req.body.dept};
+    const data ={name :req.body.name , pass:req.body.pass ,mail: req.body.mail,syr:req.body.syr,eyr:req.body.eyr,dept:req.body.dept};
     const headers= {
         'Content-Type':'application/json',
     }
