@@ -1,5 +1,5 @@
 console.log("nav.js is executing");
-fetch("http://localhost:5000/profile",{
+fetch(" http://localhost:3000/profile",{
     method:'GET',
     credentials:'include'
 })

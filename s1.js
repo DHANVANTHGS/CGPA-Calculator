@@ -10,7 +10,7 @@ const { connection } = require("mongoose");
 const app=express();
 const port=5000;
 const SECRET_KEY = 'supersecretkey';
-const allowedOrigins=['http://localhost:3000',' https://dhanvanthgs.github.io/CGPA-Calculator'];
+const allowedOrigins=['http://localhost:3000','  https://motorcycle-removable-journey-crafts.trycloudflare.com'];
 
 app.use(express.json());
 app.use(cors({
@@ -97,6 +97,7 @@ app.get('/profile',async(req,res)=>{
         if (err) {
             return res.status(403).json({ message: 'Invalid token' });
         }
+        console.log(user);
         res.json({ user });
     })
 });

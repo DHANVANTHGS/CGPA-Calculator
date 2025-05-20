@@ -45,8 +45,8 @@ async function filter(){
         sem = ((year-1)*2)+s;
         console.log(sem);
     }
-    const params = new URLSearchParams({ dept, year, sem }); 
-     const result=await fetch(`http://localhost:5000/getdata?${params.toString()}`,{
+    const params = new URLSearchParams({ dept, sem }); 
+     const result=await fetch(` http://localhost:3000/getdata?${params.toString()}`,{
         method:'GET',
         headers: {
             'Content-Type':'application/json'

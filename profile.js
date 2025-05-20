@@ -12,7 +12,7 @@ p.setAttribute('width','120');
 p.setAttribute('height','120');
 p.setAttribute('id','ppic');
 
-fetch("http://localhost:5000/profile",{
+fetch(" http://localhost:3000/profile",{
     method:'GET',
     credentials:'include'
 })
@@ -28,7 +28,7 @@ fetch("http://localhost:5000/profile",{
     }
 })
 document.getElementById("logout").addEventListener("click",function(){
-    fetch("http://localhost:5000/logout",{
+    fetch(" https://localhost:3000/logout",{
         method : 'GET',
         credentials:'include'
     })

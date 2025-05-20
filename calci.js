@@ -70,8 +70,9 @@ document.getElementById('calculateGPA').addEventListener("click", function(){
             document.getElementById("resultValue").innerHTML = "Invalid input!";
         } else {
             const result = numerator / denominator;
-            result*=2.5;
+            //result*=2.5;
             document.getElementById("resultValue").innerHTML = `${result.toFixed(2)}`;
+            console.log(result);
             console.log("result added");
         }
     }
@@ -96,7 +97,7 @@ document.getElementById('saveResult').addEventListener("click",function(){
         const urlParams = new URLSearchParams(window.location.search);
         const name =urlParams.get('name');
         const data={result:result,year:year,sem:sem,name:name};
-        fetch("http://localhost:5000/save",{
+        fetch(" http://localhost:3000/save",{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
