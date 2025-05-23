@@ -7,11 +7,11 @@ fetch(" http://localhost:3000/profile",{
 .then(data=>{
     console.log(data.user);
     if (data.user) {
-        const prof = document.getElementById('prof');
-        prof.setAttribute('href', 'profile.html');
+        const prof = document.getElementById('proff');
         prof.innerHTML = ''; 
-        const new_button=document.createElement('button');
+        const new_button=document.createElement('a');
         new_button.setAttribute('id','prof');
+        new_button.setAttribute('href','profile.html');
         const img = document.createElement('img');
         img.setAttribute('src', 'profilepic-removebg-preview.png');
         img.setAttribute('alt', 'user pic');
@@ -20,6 +20,6 @@ fetch(" http://localhost:3000/profile",{
         img.style.borderRadius = '50%'; 
         img.style.objectFit = 'cover'; 
         new_button.appendChild(img);
-        prof.replaceChild(new_button);
+        prof.replaceWith(new_button);
     }    
 })

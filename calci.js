@@ -82,8 +82,10 @@ document.getElementById('calculateGPA').addEventListener("click", function () {
     if(denominator === 0){
         document.getElementById("resultValue").innerHTML="Invalid input!";
     }else{
-        const result=numerator/denominator;
-        document.getElementById("resultValue").innerHTML=${result.toFixed(2)};
+        let result=numerator/denominator;
+        result*=25;
+        result/=10;
+        document.getElementById("resultValue").innerHTML=`${result.toFixed(2)}`;
         console.log("result added");
     }
 });
@@ -132,7 +134,7 @@ document.getElementById('saveResult').addEventListener("click",function(){
 });
 
 document.getElementById("DownloadResult").addEventListener("click",function(){
-    const element=document.body;
+    const element=document.getElementById('download');
       const options = {
         margin:       0.5,
         filename:     'leaderboard.pdf',
