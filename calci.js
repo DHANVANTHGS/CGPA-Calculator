@@ -49,32 +49,42 @@ document.getElementById('addCourse').addEventListener("click",function(){
     d.appendChild(dg);
 
 });
-document.getElementById('calculateGPA').addEventListener("click", function(){
-        const c_credit=document.getElementsByClassName('course-credits');
-        const c_grade=document.getElementsByClassName('course-grade');
-        const len=c_credit.length;
-        const year =document.getElementById("yearFilter").value;
-        const sem=document.getElementById("semesterFilter").value;
-        if(!year || !sem ){
-            alert("fill all required fields");
-        }
-        else{
-        var numerator=0;
-        var denominator=0;
-        document.getElementById('resultContainer').setAttribute("style", "display: block;");
-        for(var i=0;i<len;i++){
-            numerator+=(parseFloat(c_credit[i].value)*parseFloat(c_grade[i].value));
-            denominator+=parseFloat(c_credit[i].value);
-        }
-        if (denominator === 0) {
-            document.getElementById("resultValue").innerHTML = "Invalid input!";
-        } else {
-            const result = numerator / denominator;
-            //result*=2.5;
-            document.getElementById("resultValue").innerHTML = `${result.toFixed(2)}`;
-            console.log(result);
-            console.log("result added");
-        }
+document.getElementById('calculateGPA').addEventListener("click", function () {
+    const c_credit=document.getElementsByClassName('course-credits');
+    const c_grade=document.getElementsByClassName('course-grade');
+    const len=c_credit.length;
+    const yearSelect=document.getElementById("yearFilter");
+    const semSelect=document.getElementById("semesterFilter");
+    const year=yearSelect.value;
+    const sem=semSelect.value;
+    yearSelect.style.boxShadow="none";
+    semSelect.style.boxShadow="none";
+    let isValid=true;
+    if(!year){
+        yearSelect.style.boxShadow="0 0 8px 2px red";
+        isValid=false;
+    }
+    if(!sem){
+        semSelect.style.boxShadow="0 0 8px 2px red";
+        isValid=false;
+    }
+    if(!isValid){
+        alert("Fill all required fields");
+        return;
+    }
+    var numerator=0;
+    var denominator=0;
+    document.getElementById('resultContainer').style.display="block";
+    for(var i=0;i<len;i++){
+        numerator+=(parseFloat(c_credit[i].value) * parseFloat(c_grade[i].value));
+        denominator+=parseFloat(c_credit[i].value);
+    }
+    if(denominator === 0){
+        document.getElementById("resultValue").innerHTML="Invalid input!";
+    }else{
+        const result=numerator/denominator;
+        document.getElementById("resultValue").innerHTML=${result.toFixed(2)};
+        console.log("result added");
     }
 });
 document.getElementById('remove').addEventListener("click",function(){
