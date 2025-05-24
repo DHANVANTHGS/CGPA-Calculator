@@ -15,8 +15,8 @@ fetch(" http://localhost:3000/profile",{
         const img = document.createElement('img');
         img.setAttribute('src', 'profilepic-removebg-preview.png');
         img.setAttribute('alt', 'user pic');
-        img.setAttribute('width', '80'); 
-        img.setAttribute('height', '80');
+        img.setAttribute('width', '50'); 
+        img.setAttribute('height', '50');
         img.style.borderRadius = '50%'; 
         img.style.objectFit = 'cover'; 
         new_button.appendChild(img);
