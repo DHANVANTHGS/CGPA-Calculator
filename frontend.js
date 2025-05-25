@@ -108,9 +108,10 @@ app.post ('/save',async(req,res)=>{
 });
 
 app.get('/getdata',async(req,res)=>{
-        const sem=req.params.sem;
-        const dept=req.params.dept;
-        const params=new URLSearchParams(sem,dept);
+         const dept=req.query.dept;
+        const sem=req.query.sem;
+        console.log(dept);
+        const params=new URLSearchParams({sem,dept});
         const headers = {
              'Content-Type': 'application/json',
         };

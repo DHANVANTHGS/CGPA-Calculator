@@ -31,13 +31,14 @@ async function display(data,dept,sem){
         count++;
         sum+=cgpa;
     });
-    const avg=document.getElementById("averageCGPA").innerText=(sum/count);
+    const avg=document.getElementById("averageCGPA").innerText=((sum/count).toFixed(2));
     const highest=document.getElementById("highestCGPA").innerText=high;
     const total=document.getElementById("totalStudents").innerText=data.length;
 }
 
 async function filter(){
     const dept=document.getElementById("departmentFilter").value;
+    console.log(dept);
     const year=document.getElementById("yearFilter").value;
     const s=document.getElementById("semesterFilter").value;
     let sem;

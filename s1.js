@@ -130,6 +130,7 @@ app.get('/getdata',async(req,res)=>{
     console.log("sending data");
     const dept=req.query.dept;
     const sem=req.query.sem;
+    console.log(dept);
     let result="";
     const projection = {
         name: 1,
