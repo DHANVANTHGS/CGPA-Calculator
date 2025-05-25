@@ -41,10 +41,6 @@ Built by:
 
 It was a great collaborative learning experience developing this platform from scratch!
 
-## 📸 Screenshots
-
-> *(Add screenshots of your homepage, calculator section, leaderboard, and profile here)*
-
 ## 🧪 How to Run Locally
 
 # Clone the repository
