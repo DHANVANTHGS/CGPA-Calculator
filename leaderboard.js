@@ -29,7 +29,7 @@ async function display(data,dept,sem){
         portion.appendChild(row);
         rank++;
         count++;
-        sum+=cgpa;
+        sum=sum+cgpa;
     });
     const avg=document.getElementById("averageCGPA").innerText=((sum/count).toFixed(2));
     const highest=document.getElementById("highestCGPA").innerText=high;
