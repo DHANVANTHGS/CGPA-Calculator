@@ -44,7 +44,7 @@ It was a great collaborative learning experience developing this platform from s
 ## 🧪 How to Run Locally
 
 # Clone the repository
-git clone https://github.com/your-username/cgpa-calculator.git
+git clone https://github.com/DHANVANTHGS/CGPA-Calculator
 cd cgpa-calculator
 
 # Install dependencies
