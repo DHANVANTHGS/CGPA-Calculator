@@ -4,7 +4,7 @@ const cors =require('cors');
 const body_parse=require('body-parser');
 const collection = require('./config');
 const jwt=require('jsonwebtoken');
-const cookieParser=require('cookie-parser'); 
+const cookieParser=require('cookie-parser');  
 const { connection } = require("mongoose");
 
 const app=express();
