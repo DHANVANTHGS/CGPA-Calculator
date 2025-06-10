@@ -7,7 +7,7 @@ An all-in-one CGPA Calculator built for students to calculate, track, and improv
 - 📚 **Learn CGPA Calculation** – Understand how your CGPA is derived  
 - 🧠 **Tips to Improve CGPA** – Smart strategies for better performance  
 - 📝 **Calculate CGPA** using grades and credit inputs  
-- 📥 **Download Results** – Save your calculated CGPA as a file  
+- 📥 **Download Results** – Save your calculated CGPA as a file   
 - 🏆 **Leaderboard** – Compete with peers on academic progress  
 - 👤 **Profile Section** – Add personal details and save CGPA history  
 - 🔐 **User Accounts** – Register/Login to access your dashboard   
