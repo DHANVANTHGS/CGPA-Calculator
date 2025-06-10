@@ -10,7 +10,7 @@ An all-in-one CGPA Calculator built for students to calculate, track, and improv
 - 📥 **Download Results** – Save your calculated CGPA as a file  
 - 🏆 **Leaderboard** – Compete with peers on academic progress  
 - 👤 **Profile Section** – Add personal details and save CGPA history  
-- 🔐 **User Accounts** – Register/Login to access your dashboard  
+- 🔐 **User Accounts** – Register/Login to access your dashboard   
 - 💻 **Fully Responsive** – Works smoothly across devices  
 - 🎨 **Clean UI/UX** – Built with attention to student usability
 
