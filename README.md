@@ -16,7 +16,7 @@ An all-in-one CGPA Calculator built for students to calculate, track, and improv
 
 ## 🛠️ Tech Stack
 
-### 🔹 Frontend:
+### 🔹 Frontend: 
 - HTML5  
 - CSS3  
 - JavaScript  
